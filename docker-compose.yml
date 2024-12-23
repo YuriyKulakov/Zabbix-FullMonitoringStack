@@ -1,5 +1,6 @@
-version: '3.0'
+---
 services:
+# Zabbix 
   zabbix-server:
     image: ${ZABBIX_SERVER_IMAGE}
     container_name: server
@@ -57,7 +58,7 @@ services:
       - zabbix-server
     networks:
       - network-zabbix
-
+# Selenium for Web monitoring 
   selenium-event-bus:
     image: selenium/event-bus:4.26.0-20241101
     container_name: selenium-event-bus
@@ -156,7 +157,7 @@ services:
       - SE_EVENT_BUS_HOST=selenium-event-bus
       - SE_EVENT_BUS_PUBLISH_PORT=4442
       - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
-
+# Postgress 
   postgres:
     image: ${POSTGRES_IMAGE}
     container_name: postgres
@@ -172,7 +173,7 @@ services:
       PG_DATA: /var/lib/postgresql/data/pgdata
     networks:
       - network-zabbix
-
+# Grafana
   grafana:
     image: ${GRAFANA_IMAGE}
     container_name: grafana

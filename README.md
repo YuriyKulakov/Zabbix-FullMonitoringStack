@@ -3,9 +3,7 @@
 - [Official Zabbix Dockerfiles](https://github.com/zabbix/zabbix-docker)
 - [Zabbix plugin for Grafana dashboard](https://github.com/grafana/grafana-zabbix)
 
-For those who are used to using zabbix to collect metrics, but want to start drawing dashboards more beautifully
-
-Example simple docker-compose service
+Этот docker-compose разворачивает полный стек для организации корпаротивной ситемы мониторинга.
 
 - **Postgresql:**                16.2
 - **Zabbix Server:**             7.0.3
@@ -13,22 +11,22 @@ Example simple docker-compose service
 - **Zabbix Agent:**              7.0.3
 - **Grafana:**                   11.2.0
 
-## Guide
+## Инструкция 
 
-### Clone repo:
+### Клонируем репозиторий
 ```
-git clone https://github.com/akmalovaa/zabbix-docker.git
+git clone https://github.com/YuriyKulakov/zabbix-docker-stack.git
 cd zabbix-docker
 ```
 
-### Check or change settings in the `.env` file
+### Правим настроики в файле `.env`
 
-### Run docker-compose:
+### Запускаем docker-compose:
 ```
 docker-compose up -d
 ```
 
-The first launch takes 1-2 minutes
+Первый запуск может длится примерно 1-2  минуты.
 
 ### Zabbix `localhost:8080`
 default user password 
@@ -37,7 +35,6 @@ default user password
 
 
 **Zabbix server** - Host / change use connect from DNS `zabbix-agent`
-![zabbix-agent](./.images/zabbix-agent-settings.png)
 
 ### Grafana `localhost:3000` 
 
@@ -48,7 +45,6 @@ default user password (change `grafana/grafana.ini` auth.anonymous enabled)
 Test data source
 
 `Grafana -> Connections -> Data sources -> zabbix -> Test`
-![zabbix-agent](./.images/data-source-test.png)
 
 ### Debug
 ```
